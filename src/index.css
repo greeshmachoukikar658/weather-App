@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+/* ── Base ── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ── GPU layer for gradient bg ── */
+.app-bg {
+  transform: translateZ(0);
+}
+
+/* ── City chips hover ── */
+.city-chip {
+  will-change: transform;
+  transition: transform 0.15s ease;
+}
+.city-chip:hover {
+  transform: scale(1.05);
+}
+
+/* ── WeatherCard fade-in ── */
+.weather-card {
+  animation: fadeUp 0.3s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Hide scrollbar on city list ── */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ── Leaflet ── */
+.leaflet-container {
+  height: 400px;
+  width: 100%;
+  z-index: 0;
+}
+.leaflet-pane { z-index: 0; }
+.leaflet-top, .leaflet-bottom { z-index: 1; }
